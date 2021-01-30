@@ -115,3 +115,25 @@ const idInvalidCardCompanies = (invalidCards) => {
   return invalidIssuers;
 };
 // console.log(idInvalidCardCompanies(findInvalidCards(batch)));
+
+const stringToArray = (stringCard) => {
+  const array = stringCard.split('');
+  return array;
+};
+// console.log(stringToArray("52325441545"));
+
+const fromInvalidToValid = (card) => {
+  if (!validateCred(card)) {
+    const newCard = card.map(digit => digit);
+    for (i = 0 ; i < 10 ; i++) {
+      newCard.pop();
+      newCard.push(i);
+      if (validateCred(newCard)) {
+        return newCard;
+      }
+    }
+  }
+}
+// console.log(invalid1.join(""));
+// console.log(fromInvalidToValid(invalid1).join(""));
+// console.log(validateCred(fromInvalidToValid(invalid1)));
