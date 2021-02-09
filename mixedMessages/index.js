@@ -45,4 +45,17 @@ const messageElements = {
   ],
 };
 
-console.log(emojis[0]);
+const randomMessage = () => {
+  const randomEmoji = Math.floor(Math.random() * messageElements.emojis.length);
+  const randomPhrase = Math.floor(
+    Math.random() * messageElements.phrases.length
+  );
+  const randomMotivation = Math.floor(
+    Math.random() * messageElements.motivation.length
+  );
+  return `Hi! your identity emoji is ${messageElements.emojis[randomEmoji]} 
+  This month ${messageElements.phrases[randomPhrase]} 
+  Remember: ${messageElements.motivation[randomMotivation]}`;
+};
+
+console.log(randomMessage());
